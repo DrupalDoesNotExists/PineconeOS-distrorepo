@@ -269,3 +269,12 @@ size:13190
 sha:7018b831
 file:vi-1.0.0.cone
 ---
+pkg:pine
+version:1.0.2
+arch:any
+deps:coreutils@>=1.0.0
+desc:PineconeOS package manager (1.0.2) - fix installed DB mkdir_p and write check
+size:32073
+sha:1874cc23
+file:pine-1.0.2.cone
+---
