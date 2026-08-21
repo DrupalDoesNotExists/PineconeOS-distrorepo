@@ -98,6 +98,15 @@ size:177162
 sha:53c40387
 file:knuck-1.0.7.cone
 ---
+pkg:knuck
+version:1.0.8
+arch:any
+deps:
+desc:KNUCK microkernel (Lua 5.2) — conditional cooked-mode TTY processing (fixes double echo, password visible, shell Enter)
+size:177661
+sha:a480b5b1
+file:knuck-1.0.8.cone
+---
 pkg:knuck-icmp
 version:1.0.0
 arch:any
