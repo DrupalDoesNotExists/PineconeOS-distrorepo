@@ -1,6 +1,6 @@
 # PineconeOS Distro Repo
 
-VCS for PineconeOS binary packages (.pine) and PINEINDEX.
+VCS for PineconeOS binary packages (.cone) and PINEINDEX.
 
 Source repo: PineconeOS (kernel + distro build)
 Generated via /tmp/opencode/build_pine.lua and pkg_register.sh
