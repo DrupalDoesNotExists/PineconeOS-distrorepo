@@ -504,3 +504,12 @@ desc:KNUCK microkernel - PTY subsystem, peripheral arg parsing fix
 size:194459
 sha:2d086f6f
 file:knuck-1.0.19.cone
+---
+pkg:ttybcd
+version:1.0.3
+arch:any
+deps:coreutils@>=1.0.0
+desc:TTY broadcast daemon - PTY master/slave proxy + monitor broadcast (manual command)
+size:3963
+sha:e10b6138
+file:ttybcd-1.0.3.cone
