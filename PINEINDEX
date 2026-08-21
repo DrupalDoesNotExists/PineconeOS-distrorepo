@@ -424,6 +424,15 @@ size:3074
 sha:ac79ecf5
 file:ttybcd-1.0.0.cone
 ---
+pkg:ttybcd
+version:1.0.1
+arch:any
+deps:coreutils@>=1.0.0
+desc:TTY broadcast daemon (mirror terminal to attached monitors) - sandbox-safe
+size:1587
+sha:8fef531f
+file:ttybcd-1.0.1.cone
+---
 pkg:knuck
 version:1.0.18
 arch:any
