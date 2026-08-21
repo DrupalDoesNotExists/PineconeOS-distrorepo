@@ -89,6 +89,15 @@ size:176418
 sha:740a0dd5
 file:knuck-1.0.6.cone
 ---
+pkg:knuck
+version:1.0.7
+arch:any
+deps:
+desc:KNUCK microkernel (Lua 5.2) — cooked-mode TTY echo + backspace fix, line buffering
+size:177162
+sha:53c40387
+file:knuck-1.0.7.cone
+---
 pkg:knuck-icmp
 version:1.0.0
 arch:any
