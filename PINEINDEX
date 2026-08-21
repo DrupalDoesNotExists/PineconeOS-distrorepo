@@ -107,6 +107,15 @@ size:177661
 sha:a480b5b1
 file:knuck-1.0.8.cone
 ---
+pkg:knuck
+version:1.0.9
+arch:any
+deps:
+desc:KNUCK microkernel (Lua 5.2) — fix-60: Enter keycodes 28/13/257, cooked-mode TTY echo + backspace fix
+size:177712
+sha:223d6f40
+file:knuck-1.0.9.cone
+---
 pkg:knuck-icmp
 version:1.0.0
 arch:any
