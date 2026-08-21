@@ -342,3 +342,21 @@ size:185134
 sha:1cc5b9cb
 file:knuck-1.0.12.cone
 ---
+pkg:knuck
+version:1.0.13
+arch:any
+deps:
+desc:KNUCK microkernel (Lua 5.2) - fix AF_HTTP socket domain mapping (connect refused), tty scroll direction, vfs peripherals virtual dir
+size:185489
+sha:d5f38a1c
+file:knuck-1.0.13.cone
+---
+pkg:pine
+version:1.0.5
+arch:any
+deps:coreutils@>=1.0.0
+desc:PineconeOS package manager (1.0.5) - AF_HTTP socket fetch, rebuild-db command, DB manifests in installer
+size:34842
+sha:cfb1ab7b
+file:pine-1.0.5.cone
+---
