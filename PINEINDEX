@@ -360,6 +360,15 @@ size:185913
 sha:fe63ca0a
 file:knuck-1.0.14.cone
 ---
+pkg:knuck
+version:1.0.15
+arch:any
+deps:
+desc:KNUCK microkernel (Lua 5.2) - fix AF_HTTP send/recv via http_success event (url-keyed pending), socket domain+socktype mapping, tty scroll direction
+size:186147
+sha:f8d09a7d
+file:knuck-1.0.15.cone
+---
 pkg:pine
 version:1.0.5
 arch:any
