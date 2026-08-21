@@ -405,3 +405,30 @@ desc:KNUCK microkernel (Lua 5.2) - cwd inheritance (ls lists shell cwd), tty scr
 size:186530
 sha:fb84a844
 file:knuck-1.0.17.cone
+---
+pkg:ttybcd
+version:1.0.0
+arch:any
+deps:coreutils@>=1.0.0
+desc:TTY broadcast daemon (mirror terminal to attached monitors)
+size:3074
+sha:ac79ecf5
+file:ttybcd-1.0.0.cone
+---
+pkg:knuck
+version:1.0.18
+arch:any
+deps:
+desc:KNUCK microkernel (Lua 5.2) - exit_kernel syscall (termkernel), mouse-wheel scroll, cwd inheritance, tty scroll, AF_HTTP
+size:187416
+sha:da37ffa5
+file:knuck-1.0.18.cone
+---
+pkg:termkernel
+version:1.0.0
+arch:any
+deps:coreutils@>=1.0.0
+desc:Drop KNUCK kernel and return to clean CraftOS (root only)
+size:748
+sha:0e08a49c
+file:termkernel-1.0.0.cone

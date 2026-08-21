@@ -1,0 +1,28 @@
+---PINEPKG v1---
+name=termkernel
+version=1.0.0
+arch=any
+maintainer=userland@pinecone.dev
+description=Drop KNUCK kernel and return to clean CraftOS (root only)
+license=MIT
+essential=no
+deps=coreutils@>=1.0.0
+provides=
+conffiles=
+preinst=
+prerem=
+postrem=
+files=1
+---END MANIFEST---
+---FILE /usr/bin/termkernel.lua 0755 396 1382e3d0 src---
+#!/usr/bin/env lua
+-- termkernel: drop the running KNUCK kernel and return to clean CraftOS.
+-- Root only. Requires kernel support: exit_kernel syscall (knuck >= 1.0.18).
+local ok, err = exit_kernel()
+if not ok then
+  io.stderr:write("termkernel: " .. tostring(err) .. "\n")
+  os.exit(1)
+end
+-- Kernel will tear itself down on the next scheduler pass.
+print("termkernel: dropping to CraftOS...")
+---END PKG---
