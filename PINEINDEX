@@ -351,6 +351,15 @@ size:185489
 sha:d5f38a1c
 file:knuck-1.0.13.cone
 ---
+pkg:knuck
+version:1.0.14
+arch:any
+deps:
+desc:KNUCK microkernel (Lua 5.2) - fix AF_HTTP socket domain+socktype mapping (connect refused/invalid argument), tty scroll direction, vfs peripherals virtual dir
+size:185913
+sha:fe63ca0a
+file:knuck-1.0.14.cone
+---
 pkg:pine
 version:1.0.5
 arch:any
