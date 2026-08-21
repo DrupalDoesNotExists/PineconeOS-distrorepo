@@ -315,3 +315,30 @@ size:185158
 sha:5f31e65e
 file:knuck-1.0.11.cone
 ---
+pkg:coreutils
+version:1.0.1
+arch:any
+deps:
+desc:Basic file utilities (ls getcwd fix)
+size:16948
+sha:cdbb6889
+file:coreutils-1.0.1.cone
+---
+pkg:pine
+version:1.0.4
+arch:any
+deps:coreutils@>=1.0.0
+desc:PineconeOS package manager (1.0.4) - AF_HTTP socket fetch, remove list fallback, DB manifests in installer
+size:32640
+sha:00bf5891
+file:pine-1.0.4.cone
+---
+pkg:knuck
+version:1.0.12
+arch:any
+deps:
+desc:KNUCK microkernel (Lua 5.2) - fix tty scroll direction (Up/Down arrows), vfs peripherals virtual dir, sched starvation guard
+size:185134
+sha:1cc5b9cb
+file:knuck-1.0.12.cone
+---
