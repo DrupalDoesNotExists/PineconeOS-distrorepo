@@ -80,6 +80,15 @@ size:116218
 sha:5fbb5929
 file:knuck-1.0.5.cone
 ---
+pkg:knuck
+version:1.0.6
+arch:any
+deps:
+desc:KNUCK microkernel (Lua 5.2) — cooked-mode TTY line buffering, sched starvation guard
+size:176418
+sha:740a0dd5
+file:knuck-1.0.6.cone
+---
 pkg:knuck-icmp
 version:1.0.0
 arch:any
