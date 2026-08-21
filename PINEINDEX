@@ -324,6 +324,15 @@ size:16948
 sha:cdbb6889
 file:coreutils-1.0.1.cone
 ---
+pkg:coreutils
+version:1.0.2
+arch:any
+deps:
+desc:Basic file utilities (ls getcwd fix) + clear
+size:17054
+sha:89fd8c66
+file:coreutils-1.0.2.cone
+---
 pkg:pine
 version:1.0.4
 arch:any
