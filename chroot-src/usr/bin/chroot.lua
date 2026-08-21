@@ -1,0 +1,68 @@
+-- chroot: run command with changed root directory
+-- Usage: chroot <newroot> <command> [args...]
+--        chroot <newroot>            (spawn shell)
+-- Requires root (uid=0). Uses chroot() syscall, then chdir("/")
+-- and spawn() to exec the command inside the new root.
+
+local args = {}
+for i = 1, select("#", ...) do args[i] = select(i, ...) end
+
+-- ---- helpers ----
+
+local function die(msg)
+    write(2, "chroot: " .. msg .. "\n")
+    exit(1)
+end
+
+-- ---- validate ----
+
+if #args < 1 then
+    write(2, "usage: chroot <newroot> [command [args...]]\n")
+    exit(1)
+end
+
+local newroot = args[1]
+
+-- check newroot exists and is a directory
+local st = stat(newroot)
+if not st then
+    die("cannot chroot into '" .. newroot .. "': No such file or directory")
+end
+if st.type ~= "directory" then
+    die("cannot chroot into '" .. newroot .. "': Not a directory")
+end
+
+-- ---- chroot ----
+
+local ok, err = chroot(newroot)
+if not ok then
+    die("chroot failed: " .. (err or "permission denied"))
+end
+
+-- change cwd to "/" inside the new root
+chdir("/")
+
+-- ---- exec command ----
+
+if #args >= 2 then
+    -- chroot <newroot> <command> [args...]
+    local cmd = args[2]
+    local cmd_args = {}
+    for i = 3, #args do
+        cmd_args[#cmd_args + 1] = args[i]
+    end
+    local pid = spawn(cmd, table.unpack(cmd_args))
+    if pid then
+        waitpid(pid)
+    else
+        die("failed to execute '" .. cmd .. "'")
+    end
+else
+    -- chroot <newroot> — spawn interactive shell
+    local pid = spawn("/usr/bin/sh.lua")
+    if pid then
+        waitpid(pid)
+    else
+        die("failed to spawn shell")
+    end
+end
