@@ -1,0 +1,235 @@
+---PINEINDEX v1---
+pkg:coreutils
+version:1.0.0
+arch:any
+deps:
+desc:Basic file utilities
+size:14371
+sha:9e3bed37
+file:coreutils-1.0.0.pine
+---
+pkg:shell
+version:0.1.0
+arch:any
+deps:coreutils@>=1.0.0
+desc:PineconeOS interactive shell
+size:4474
+sha:ea3b2529
+file:shell-0.1.0.pine
+---
+pkg:knuck
+version:0.1.0
+arch:any
+deps:
+desc:KNUCK microkernel (Lua 5.2)
+size:158960
+sha:af7152fd
+file:knuck-0.1.0.pine
+---
+pkg:textutils
+version:1.0.0
+arch:any
+deps:coreutils@>=1.0.0
+desc:Text processing utilities (grep, sed, sort, uniq, cut, tr)
+size:7891
+sha:34669796
+file:textutils-1.0.0.pine
+---
+pkg:fileutils
+version:1.0.0
+arch:any
+deps:coreutils@>=1.0.0
+desc:File manipulation utilities (touch, ln, chmod, chown, rmdir, basename, dirname, find)
+size:6291
+sha:c03cedf4
+file:fileutils-1.0.0.pine
+---
+pkg:procutils
+version:1.0.0
+arch:any
+deps:coreutils@>=1.0.0
+desc:Process and system utilities (ps, kill, mount, df, uname, free, uptime, which, whoami, id)
+size:10005
+sha:7d5a2100
+file:procutils-1.0.0.pine
+---
+pkg:nano
+version:1.0.0
+arch:any
+deps:coreutils@>=1.0.0
+desc:Nano-style non-modal text editor
+size:6115
+sha:2a09303b
+file:nano-1.0.0.pine
+---
+pkg:netutils
+version:1.0.0
+arch:any
+deps:coreutils@>=1.0.0
+desc:Networking utilities (ifconfig, wget, nc, ping, ip, route, hostname)
+size:12409
+sha:49c05659
+file:netutils-1.0.0.pine
+---
+pkg:vi
+version:1.0.0
+arch:any
+deps:coreutils@>=1.0.0
+desc:Vi-style modal text editor
+size:9403
+sha:a451a8d5
+file:vi-1.0.0.pine
+---
+pkg:procutils
+version:1.0.0
+arch:any
+deps:coreutils@>=1.0.0
+desc:Process and system utilities (ps, kill, mount, df, uname, free, uptime, which, whoami, id)
+size:9949
+sha:e89872c1
+file:procutils-1.0.0.pine
+---
+pkg:fileutils
+version:1.0.0
+arch:any
+deps:coreutils@>=1.0.0
+desc:File manipulation utilities (touch, ln, chmod, chown, rmdir, basename, dirname, find)
+size:6285
+sha:f9de0112
+file:fileutils-1.0.0.pine
+---
+pkg:textutils
+version:1.0.0
+arch:any
+deps:coreutils@>=1.0.0
+desc:Text processing utilities (grep, sed, sort, uniq, cut, tr)
+size:13652
+sha:8279c93c
+file:textutils-1.0.0.pine
+---
+pkg:fileutils
+version:1.0.0
+arch:any
+deps:coreutils@>=1.0.0
+desc:File manipulation utilities (touch, ln, chmod, chown, rmdir, basename, dirname, find)
+size:6279
+sha:b572fe48
+file:fileutils-1.0.0.pine
+---
+pkg:pine
+version:1.0.0
+arch:any
+deps:coreutils@>=1.0.0
+desc:PineconeOS package manager
+size:20718
+sha:8cf19224
+file:pine-1.0.0.pine
+---
+pkg:login
+version:1.0.0
+arch:any
+deps:coreutils@>=1.0.0
+desc:PineconeOS login and auth
+size:1332
+sha:159de1a7
+file:login-1.0.0.pine
+---
+pkg:authutils
+version:1.0.0
+arch:any
+deps:coreutils@>=1.0.0
+desc:User management utilities (adduser, deluser, su)
+size:5983
+sha:d3096b64
+file:authutils-1.0.0.pine
+---
+pkg:chroot
+version:1.0.0
+arch:any
+deps:coreutils@>=1.0.0
+desc:chroot utility - run command with changed root
+size:1545
+sha:7362b247
+file:chroot-1.0.0.pine
+---
+pkg:kmod
+version:1.0.0
+arch:any
+deps:coreutils@>=1.0.0
+desc:Kernel module utilities (insmod, rmmod, lsmod)
+size:2292
+sha:a6c14e03
+file:kmod-1.0.0.pine
+---
+pkg:mount
+version:1.0.0
+arch:any
+deps:coreutils@>=1.0.0
+desc:Filesystem mount/umount utilities
+size:2628
+sha:7c3ea312
+file:mount-1.0.0.pine
+---
+pkg:specutils
+version:1.0.0
+arch:any
+deps:coreutils@>=1.0.0
+desc:Base distro spec-required utils (sleep, env, umask, chgrp, readlink, mkfifo, nice, reboot, halt)
+size:6022
+sha:b465ec6b
+file:specutils-1.0.0.pine
+---
+pkg:knuck
+version:0.1.1
+arch:any
+deps:
+desc:KNUCK microkernel (Lua 5.2)
+size:127913
+sha:4118a1ce
+file:knuck-0.1.1.pine
+---
+pkg:knuck-icmp
+version:1.0.0
+arch:any
+deps:knuck@>=0.1.0
+desc:KNUCK ICMP kernel module and ping utility
+size:10141
+sha:7c17e0ac
+file:knuck-icmp-1.0.0.pine
+---
+pkg:man
+version:1.0.0
+arch:any
+deps:coreutils@>=1.0.0
+desc:Manual page reader for PineconeOS syscalls (man <name>)
+size:2459
+sha:07ce4fc7
+file:man-1.0.0.pine
+---
+pkg:dhcp
+version:1.0.0
+arch:any
+deps:coreutils@>=1.0.0
+desc:DHCP client - obtain IP configuration via UDP broadcast
+size:7354
+sha:a9a4349c
+file:dhcp-1.0.0.pine
+---
+pkg:netutils
+version:1.0.0
+arch:any
+deps:coreutils@>=1.0.0
+desc:Networking utilities (ifconfig, wget, nc, ping, ip, route, hostname)
+size:17971
+sha:977b4cd1
+file:netutils-1.0.0.pine
+---
+pkg:netutils
+version:1.0.0
+arch:any
+deps:coreutils@>=1.0.0
+desc:Networking utilities (ifconfig, wget, nc, ping, ip, route, hostname, arp)
+size:17976
+sha:b7656fb0
+file:netutils-1.0.0.pine
+---
