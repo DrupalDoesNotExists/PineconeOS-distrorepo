@@ -450,3 +450,39 @@ desc:Drop KNUCK kernel and return to clean CraftOS (root only)
 size:748
 sha:0e08a49c
 file:termkernel-1.0.0.cone
+---
+pkg:pine
+version:1.0.7
+arch:any
+deps:coreutils@>=1.0.0
+desc:PineconeOS package manager (fix install arg parsing + rebuild-db local cones)
+size:35240
+sha:7830f3f9
+file:pine-1.0.7.cone
+---
+pkg:man
+version:1.0.1
+arch:any
+deps:coreutils@>=1.0.0
+desc:Manual page viewer (sections 1-8) + base reference
+size:5232
+sha:ebdf0d2e
+file:man-1.0.1.cone
+---
+pkg:coreutils
+version:1.0.3
+arch:any
+deps:
+desc:Basic file utilities + man pages
+size:19632
+sha:9e6b2d9f
+file:coreutils-1.0.3.cone
+---
+pkg:netutils
+version:1.0.1
+arch:any
+deps:coreutils@>=1.0.0
+desc:Networking utilities + man pages
+size:26899
+sha:06374c60
+file:netutils-1.0.1.cone
