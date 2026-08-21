@@ -233,6 +233,15 @@ size:6237
 sha:d4930ee1
 file:shell-0.1.0.cone
 ---
+pkg:shell
+version:0.1.1
+arch:any
+deps:coreutils@>=1.0.0
+desc:shell (0.1.1) - error handling for command not found, run_pipeline exit status, builtins
+size:7635
+sha:52add6c7
+file:shell-0.1.1.cone
+---
 pkg:specutils
 version:1.0.0
 arch:any
