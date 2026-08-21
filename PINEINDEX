@@ -378,3 +378,21 @@ size:34842
 sha:cfb1ab7b
 file:pine-1.0.5.cone
 ---
+---
+pkg:knuck
+version:1.0.16
+arch:any
+deps:
+desc:KNUCK microkernel (Lua 5.2) - fix process cwd inheritance (ls lists shell cwd), tty scroll direction
+size:186297
+sha:de32e162
+file:knuck-1.0.16.cone
+---
+pkg:pine
+version:1.0.6
+arch:any
+deps:coreutils@>=1.0.0
+desc:PineconeOS package manager (1.0.6) - upgrade reports status, rebuild-db reconstructs DB
+size:35086
+sha:aaf7134a
+file:pine-1.0.6.cone
