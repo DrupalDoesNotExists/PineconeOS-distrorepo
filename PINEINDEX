@@ -233,3 +233,12 @@ size:17976
 sha:b7656fb0
 file:netutils-1.0.0.pine
 ---
+pkg:rv32emu
+version:0.1.0
+arch:any
+deps:
+desc:RV32I/RV32E userspace emulator (Linux rv32 syscall ABI)
+size:19183
+sha:9f6d0953
+file:rv32emu-0.1.0.pine
+---
