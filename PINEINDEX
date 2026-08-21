@@ -396,3 +396,12 @@ desc:PineconeOS package manager (1.0.6) - upgrade reports status, rebuild-db rec
 size:35086
 sha:aaf7134a
 file:pine-1.0.6.cone
+---
+pkg:knuck
+version:1.0.17
+arch:any
+deps:
+desc:KNUCK microkernel (Lua 5.2) - cwd inheritance (ls lists shell cwd), tty scroll (keys + mouse wheel), AF_HTTP
+size:186530
+sha:fb84a844
+file:knuck-1.0.17.cone
