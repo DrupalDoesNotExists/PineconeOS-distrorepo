@@ -513,3 +513,12 @@ desc:TTY broadcast daemon - PTY master/slave proxy + monitor broadcast (manual c
 size:3963
 sha:e10b6138
 file:ttybcd-1.0.3.cone
+---
+pkg:pine
+version:1.0.8
+arch:any
+deps:
+desc:pine package manager - fix fetch_url_afhttp scope (rebuild-db crash)
+size:35225
+sha:04d1d39f
+file:pine-1.0.8.cone
