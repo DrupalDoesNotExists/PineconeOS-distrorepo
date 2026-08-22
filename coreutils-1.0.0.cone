@@ -14,10 +14,32 @@ prerem=
 postrem=
 files=10
 ---END MANIFEST---
----FILE /usr/bin/cat.lua 0755 93 98b50e65 src---
--- cat: read stdin, write stdout
-local data = read(0, 65536)
-if data then write(1, data) end
+---FILE /usr/bin/cat.lua 0755 519 3f26f5e5 src---
+-- cat: concatenate files (or stdin) to stdout
+local args = {...}
+
+local function copy_file(path)
+  local fd, err = open(path, 0)  -- O_RDONLY
+  if not fd then
+    write(2, "cat: " .. path .. ": " .. tostring(err) .. "\n")
+    return
+  end
+  while true do
+    local data = read(fd, 65536)
+    if not data or #data == 0 then break end
+    write(1, data)
+  end
+  close(fd)
+end
+
+if #args == 0 then
+  local data = read(0, 65536)
+  if data then write(1, data) end
+else
+  for i = 1, #args do
+    copy_file(args[i])
+  end
+end
 ---FILE /usr/bin/cp.lua 0755 1968 12c79012 src---
 -- cp: copy files
 -- Usage: cp <src> <dst>  OR  cp <src...> <dir>

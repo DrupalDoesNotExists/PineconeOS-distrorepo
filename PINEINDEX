@@ -31,8 +31,8 @@ version:1.0.0
 arch:any
 deps:
 desc:Basic file utilities
-size:16849
-sha:985cc183
+size:17276
+sha:438074f4
 file:coreutils-1.0.0.cone
 ---
 pkg:dhcp
@@ -387,7 +387,6 @@ size:34842
 sha:cfb1ab7b
 file:pine-1.0.5.cone
 ---
----
 pkg:knuck
 version:1.0.16
 arch:any
@@ -510,8 +509,8 @@ version:1.0.3
 arch:any
 deps:coreutils@>=1.0.0
 desc:TTY broadcast daemon - PTY master/slave proxy + monitor broadcast (manual command)
-size:3963
-sha:e10b6138
+size:4047
+sha:859e7b40
 file:ttybcd-1.0.3.cone
 ---
 pkg:pine
@@ -522,3 +521,4 @@ desc:pine package manager - fix fetch_url_afhttp scope (rebuild-db crash)
 size:35225
 sha:04d1d39f
 file:pine-1.0.8.cone
+---
