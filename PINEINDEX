@@ -549,3 +549,20 @@ size:35225
 sha:451f44ae
 file:pine-1.0.9.cone
 ---
+pkg:shell
+version:0.1.4
+arch:any
+deps:coreutils@>=1.0.0
+desc:shell (0.1.4) - fix spawn arg truncation (unpack before fds dropped all but first arg)
+size:9135
+sha:13941970
+file:shell-0.1.4.cone
+---
+pkg:ttybcd
+version:1.0.5
+arch:any
+deps:coreutils@>=1.0.0
+desc:TTY broadcast daemon - forwarder writes real output to monitors, kernel scroll keys filtered from pty input
+size:4572
+sha:2eec6251
+file:ttybcd-1.0.5.cone
