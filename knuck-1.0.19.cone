@@ -2,19 +2,14 @@
 name=knuck
 version=1.0.19
 arch=any
-maintainer=userland@pinecone.dev
-description=KNUCK microkernel - PTY subsystem, peripheral arg parsing fix
+maintainer=pine@pineconeos.dev
+description=KNUCK microkernel (Lua 5.2) — scrollback keycodes fixed for current CC (up=265 down=264 pageUp=267 pageDown=266)
 license=MIT
-essential=no
+essential=yes
 deps=
-provides=
-conffiles=
-preinst=
-prerem=
-postrem=
 files=15
 ---END MANIFEST---
----FILE /lib/knuck/boot.lua 0755 7049 7770637a src---
+---FILE /lib/knuck/boot.lua 0755 7049 8585cab9 src---
 --[[
   KNUCK kernel entry
   ==================
@@ -261,7 +256,7 @@ K.sched.start()
 -- Reached only via exit_kernel(): kernel torn down, return to CraftOS shell.
 if term and term.clear then term.clear() end
 if term and term.setCursorPos then term.setCursorPos(1, 1) end
-print("Dropped to CraftOS.")---FILE /lib/knuck/kernel/auth.lua 0755 4492 a56f6440 src---
+print("Dropped to CraftOS.")---FILE /lib/knuck/kernel/auth.lua 0755 4492 356b4dcc src---
 --[[
   KNUCK account database
   ======================
@@ -401,7 +396,7 @@ return function(K)
   end
 
   return M
-end---FILE /lib/knuck/kernel/diag.lua 0755 1975 92fbba74 src---
+end---FILE /lib/knuck/kernel/diag.lua 0755 1975 9dfbd487 src---
 --[[
   KNUCK self-diagnostics
   ======================
@@ -468,7 +463,7 @@ return function(K)
   end
 
   return M
-end---FILE /lib/knuck/kernel/drivers/term.lua 0755 857 187d13ab src---
+end---FILE /lib/knuck/kernel/drivers/term.lua 0755 857 a7b66189 src---
 --[[
   KNUCK term driver
   =================
@@ -504,7 +499,7 @@ return function(K)
   end
 
   return M
-end---FILE /lib/knuck/kernel/fs.lua 0755 5240 9c02e930 src---
+end---FILE /lib/knuck/kernel/fs.lua 0755 5240 7f82def8 src---
 --[[
   KNUCK inode layer + real-fs backend
   ===================================
@@ -699,7 +694,7 @@ return function(K)
   end
 
   return M
-end---FILE /lib/knuck/kernel/ipc.lua 0755 27657 fdf9702b src---
+end---FILE /lib/knuck/kernel/ipc.lua 0755 27657 f749f339 src---
 --[[
   KNUCK IPC layer
   ===============
@@ -1491,7 +1486,7 @@ return function(K)
   end
 
   return M
-end---FILE /lib/knuck/kernel/loader.lua 0755 1423 277f798e src---
+end---FILE /lib/knuck/kernel/loader.lua 0755 1423 765d6edf src---
 --[[
   KNUCK module loader
   ===================
@@ -1542,7 +1537,7 @@ function M.unload(path)
   loaded[path] = nil
 end
 
-return M---FILE /lib/knuck/kernel/net.lua 0755 17188 1f18fc71 src---
+return M---FILE /lib/knuck/kernel/net.lua 0755 17188 c4a66fe4 src---
 --[[
   KNUCK network core
   ==================
@@ -2075,7 +2070,7 @@ return function(K)
   end
 
   return M
-end---FILE /lib/knuck/kernel/net_icmp.lua 0755 7780 3ab431a3 src---
+end---FILE /lib/knuck/kernel/net_icmp.lua 0755 7780 4dee4724 src---
 --[[
   KNUCK ICMP module
   =================
@@ -2349,7 +2344,7 @@ return function(K)
 
   return M
 end
----FILE /lib/knuck/kernel/net_transport.lua 0755 17955 1913f4f8 src---
+---FILE /lib/knuck/kernel/net_transport.lua 0755 17955 ccdc0933 src---
 --[[
   KNUCK transport layer
   =====================
@@ -2888,7 +2883,7 @@ return function(K)
   end
 
   return M
-end---FILE /lib/knuck/kernel/proc.lua 0755 13041 9444ab27 src---
+end---FILE /lib/knuck/kernel/proc.lua 0755 13041 c7fe21a1 src---
 --[[
   KNUCK process management
   ========================
@@ -3276,7 +3271,7 @@ return function(K)
   end
 
   return M
-end---FILE /lib/knuck/kernel/sched.lua 0755 8735 33f1d631 src---
+end---FILE /lib/knuck/kernel/sched.lua 0755 8735 86e13e6f src---
 --[[
   KNUCK scheduler
   ===============
@@ -3537,7 +3532,7 @@ return function(K)
   }
 
   return M
-end---FILE /lib/knuck/kernel/syscall.lua 0755 29469 dcd9e901 src---
+end---FILE /lib/knuck/kernel/syscall.lua 0755 29469 d7f34c0d src---
 --[[
   KNUCK syscall dispatcher
   ========================
@@ -4424,7 +4419,7 @@ return function(K)
   end)
 
   return M
-end---FILE /lib/knuck/kernel/tty.lua 0755 13242 3a418541 src---
+end---FILE /lib/knuck/kernel/tty.lua 0755 13576 6ded7288 src---
 --[[
   KNUCK virtual terminals (multi-tty)
   ===================================
@@ -4580,16 +4575,20 @@ return function(K)
   function M.handle_input(ev)
     if ev[1] == "key" then
       local k = ev[2]
-      if k == 201 or k == 199 then
-        M.do_scroll(active, get_h() - 1)
+      -- CC key codes changed across versions. Support BOTH the old scheme
+      -- (up=200 down=208 pageUp=201 pageDown=209 home=199 end=207) and the
+      -- current scheme (up=265 down=264 pageUp=267 pageDown=266 home=268 end=269).
+      local page = get_h() - 1
+      if k == 201 or k == 199 or k == 267 or k == 268 then
+        M.do_scroll(active, page)
         return
-      elseif k == 209 then
-        M.do_scroll(active, -(get_h() - 1))
+      elseif k == 209 or k == 207 or k == 266 or k == 269 then
+        M.do_scroll(active, -page)
         return
-      elseif k == 200 then
+      elseif k == 200 or k == 265 then
         M.do_scroll(active, 1)
         return
-      elseif k == 208 then
+      elseif k == 208 or k == 264 then
         M.do_scroll(active, -1)
         return
       end
@@ -4833,7 +4832,7 @@ return function(K)
   end
 
   return M
-end---FILE /lib/knuck/kernel/vfs.lua 0755 37156 f447a12d src---
+end---FILE /lib/knuck/kernel/vfs.lua 0755 37156 abba5de4 src---
 --[[
   KNUCK VFS
   =========
